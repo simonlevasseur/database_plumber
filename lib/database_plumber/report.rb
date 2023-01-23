@@ -12,7 +12,9 @@ module DatabasePlumber
 
       REPORT
 
-      leaks.each(&method(:print_leak))
+      leaks.each do |model, count|
+        print_leak(model, count)
+      end
 
       puts <<-REPORT.strip_heredoc
 
